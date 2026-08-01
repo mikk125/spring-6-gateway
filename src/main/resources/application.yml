@@ -1,8 +1,19 @@
 spring:
   cloud:
     gateway:
-      routes:
-        - id: spring-6-rest-mvc
-          uri: http://localhost:8081
-          predicates:
-            - Path=/api/v1/*
+      server:
+        webmvc:
+          routes:
+            - id: spring-6-rest-mvc
+              uri: http://localhost:8081
+              predicates:
+                - Path=/api/v1/*
+#      httpserver:
+#        wiretap: true
+#      httpclient:
+#        wiretap: true # information being sent is visible
+#
+#logging:
+#  level:
+#    root: error
+#    reactor.netty: trace
