@@ -11,7 +11,7 @@ spring:
         webflux:
           routes:
             - id: spring-6-rest-mvc
-              uri: http://rest-mvc:8080
+              uri: http://rest-mvc:8081
               predicates:
                 - Path=/api/v1/**
             - id: spring-6-reactive
