@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: reactive-mongo
+  name: reactive-mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactive-mongo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: reactive-mongo
+    spec:
+      containers:
+      - image: reactive-mongo:0.0.1-SNAPSHOT
+        name: reactive-mongo
+        resources: {}
+        env:
+          - name: SERVER_PORT
+            value: "8083"
+          - name: SFG_MONGOHOST
+            value: mongo
+status: {}

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+#kubectl create deployment reactive --image=spring-6-reactive:0.0.1-SNAPSHOT --dry-run=client -o yaml > reactive-deployment.yaml
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: reactive
+  name: reactive
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactive
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: reactive
+    spec:
+      containers:
+      - image: spring-6-reactive:0.0.1-SNAPSHOT
+        name: spring-6-reactive
+        resources: {}
+        env:
+          - name: SERVER_PORT
+            value: "8082"
+status: {}

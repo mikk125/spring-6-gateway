@@ -1,0 +1,19 @@
+apiVersion: v1
+#kubectl create service clusterip reactive --tcp=8082:8082 --dry-run=client -o yaml > reactive-service.yaml
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: reactive
+  name: reactive
+spec:
+  ports:
+  - name: 8082-8082
+    port: 8082
+    protocol: TCP
+    targetPort: 8082
+  selector:
+    app: reactive
+  type: ClusterIP
+status:
+  loadBalancer: {}
